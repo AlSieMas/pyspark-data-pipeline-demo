@@ -1,0 +1,11 @@
+services:
+  jupyter:
+    build: .
+    container_name: pyspark_jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    environment:
+      - PYTHONPATH=/workspace/src
