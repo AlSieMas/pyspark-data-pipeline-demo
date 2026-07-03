@@ -56,7 +56,13 @@ Generated curated output is written to:
 data/curated/
 ```
 
-Both folders are excluded from Git tracking because raw and processed data files can become large.
+Aggregated analytical outputs are written to:
+
+```text
+data/analytics/
+```
+
+These data folders are excluded from Git tracking because raw, processed and aggregated data files can become large.
 
 ## Current Features
 
@@ -75,28 +81,39 @@ Both folders are excluded from Git tracking because raw and processed data files
   * tip percentage
 * Curated Parquet output
 * Spark SQL analytics
+* Reusable transformation logic in Python modules
+* Basic pytest-based unit tests for Spark transformations
+* Clear separation of raw, curated and analytics data layers
 
 ## Project Structure
 
 ```text
 pyspark-data-pipeline-demo/
- data/
- raw/                 # Raw local data, ignored by Git
- curated/             # Processed output data, ignored by Git
-
- notebooks/
- 01_infrastructure_test.ipynb
- 02_load_public_dataset.ipynb
-
- src/
- pipeline/
- __init__.py
-
- Dockerfile
- docker-compose.yml
- requirements.txt
- .gitignore
- README.md
+├── data/
+│   ├── raw/                 # Raw local data, ignored by Git
+│   ├── curated/             # Cleaned and enriched data, ignored by Git
+│   └── analytics/           # Aggregated analytical outputs, ignored by Git
+│
+├── notebooks/
+│   ├── 01_infrastructure_test.ipynb
+│   └── 02_load_public_dataset.ipynb
+│
+├── src/
+│   └── pipeline/
+│       ├── __init__.py
+│       ├── config.py              # Central project paths and dataset configuration
+│       ├── transformations.py     # Cleaning and feature engineering logic
+│       └── analytics.py           # Reusable aggregation logic
+│
+├── tests/
+│   ├── conftest.py
+│   └── test_transformations.py
+│
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+├── .gitignore
+└── README.md
 ```
 
 ## Notebooks
@@ -153,6 +170,14 @@ notebooks/01_infrastructure_test.ipynb
 notebooks/02_load_public_dataset.ipynb
 ```
 
+### 4. Run Tests
+
+After the container is running, execute:
+
+```bash
+docker compose exec jupyter pytest -q
+```
+
 ## Example Data Quality Checks
 
 The pipeline inspects numerical columns such as:
@@ -193,8 +218,8 @@ Example analytical questions:
 * [x] Basic data quality checks
 * [x] Curated Parquet output
 * [x] Spark SQL analytics
-* [ ] Move reusable transformations into `src/`
-* [ ] Add automated tests for transformation logic
+* [x] Move reusable transformations into `src/`
+* [x] Add automated tests for transformation logic
 * [ ] Add PostgreSQL as an optional target
 * [ ] Add a small dashboard or summary report
 

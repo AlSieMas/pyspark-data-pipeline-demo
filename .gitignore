@@ -13,8 +13,10 @@ venv/
 # Local data
 data/raw/*
 data/curated/*
+data/analytics/*
 !data/raw/.gitkeep
 !data/curated/.gitkeep
+!data/analytics/.gitkeep
 
 # Environment
 .env
