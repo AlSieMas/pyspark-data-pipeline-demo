@@ -37,6 +37,7 @@ This project is intentionally kept small and reproducible. It focuses on clean i
 * Docker / Docker Compose
 * Parquet
 * Spark SQL
+* Streamlit
 
 ## Dataset
 
@@ -84,11 +85,14 @@ These data folders are excluded from Git tracking because raw, processed and agg
 * Reusable transformation logic in Python modules
 * Basic pytest-based unit tests for Spark transformations
 * Clear separation of raw, curated and analytics data layers
+* Streamlit dashboard for visualizing analytical outputs
 
 ## Project Structure
 
 ```text
 pyspark-data-pipeline-demo/
+├── app/
+    └── streamlit_app.py
 ├── data/
 │   ├── raw/                 # Raw local data, ignored by Git
 │   ├── curated/             # Cleaned and enriched data, ignored by Git
@@ -178,6 +182,14 @@ After the container is running, execute:
 docker compose exec jupyter pytest -q
 ```
 
+### Open Streamlit Dashboard
+
+After running the pipeline notebook, open:
+
+```text
+http://localhost:8501
+```
+
 ## Example Data Quality Checks
 
 The pipeline inspects numerical columns such as:
@@ -221,7 +233,7 @@ Example analytical questions:
 * [x] Move reusable transformations into `src/`
 * [x] Add automated tests for transformation logic
 * [ ] Add PostgreSQL as an optional target
-* [ ] Add a small dashboard or summary report
+* [x] Add a small dashboard or summary report
 
 ## Roadmap
 
@@ -241,7 +253,14 @@ Example analytical questions:
 * Improve configuration handling
 * Add clearer separation between raw, curated and analytical layers
 
-### Version 3: Optional Extensions
+### Version 3: Streamlit Dashboard
+
+* Add dashboard app
+* Read curated and analytics Parquet outputs
+* Show KPIs and charts
+* Extend Docker Compose with Streamlit service
+
+### Version 4: Optional Extensions
 
 Possible future extensions:
 
