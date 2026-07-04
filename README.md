@@ -265,7 +265,6 @@ Example analytical questions:
 Possible future extensions:
 
 * PostgreSQL export
-* dashboard with Streamlit
 * additional datasets
 * orchestration with Airflow or Prefect
 * Azure storage / Databricks architecture documentation
