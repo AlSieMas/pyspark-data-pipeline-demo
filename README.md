@@ -182,7 +182,7 @@ After the container is running, execute:
 docker compose exec jupyter pytest -q
 ```
 
-### Open Streamlit Dashboard
+### 5. Open Streamlit Dashboard
 
 After running the pipeline notebook, open:
 
