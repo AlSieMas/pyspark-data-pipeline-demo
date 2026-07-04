@@ -87,6 +87,10 @@ These data folders are excluded from Git tracking because raw, processed and agg
 * Clear separation of raw, curated and analytics data layers
 * Streamlit dashboard for visualizing analytical outputs
 
+## Dashboard Preview
+
+![Streamlit dashboard preview](docs/screenshots/streamlit_dashboard.png)
+
 ## Project Structure
 
 ```text
@@ -97,6 +101,9 @@ pyspark-data-pipeline-demo/
 │   ├── raw/                 # Raw local data, ignored by Git
 │   ├── curated/             # Cleaned and enriched data, ignored by Git
 │   └── analytics/           # Aggregated analytical outputs, ignored by Git
+│   docs/
+│   └── screenshots/
+│       └── streamlit_dashboard.png
 │
 ├── notebooks/
 │   ├── 01_infrastructure_test.ipynb
