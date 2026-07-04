@@ -89,7 +89,11 @@ These data folders are excluded from Git tracking because raw, processed and agg
 
 ## Dashboard Preview
 
-![Streamlit dashboard preview](docs/screenshots/streamlit_dashboard1.png)
+![Streamlit dashboard overview](docs/screenshots/streamlit_dashboard1.png)
+
+![Streamlit dashboard charts](docs/screenshots/streamlit_dashboard2.png)
+
+![Streamlit dashboard data preview](docs/screenshots/streamlit_dashboard3.png)
 
 ## Project Structure
 
