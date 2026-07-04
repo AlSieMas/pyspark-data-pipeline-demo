@@ -89,19 +89,19 @@ These data folders are excluded from Git tracking because raw, processed and agg
 
 ## Dashboard Preview
 
-![Streamlit dashboard preview](docs/screenshots/streamlit_dashboard.png)
+![Streamlit dashboard preview](docs/screenshots/streamlit_dashboard1.png)
 
 ## Project Structure
 
 ```text
 pyspark-data-pipeline-demo/
 ├── app/
-    └── streamlit_app.py
+│   └── streamlit_app.py
 ├── data/
 │   ├── raw/                 # Raw local data, ignored by Git
 │   ├── curated/             # Cleaned and enriched data, ignored by Git
 │   └── analytics/           # Aggregated analytical outputs, ignored by Git
-│   docs/
+├── docs/
 │   └── screenshots/
 │       └── streamlit_dashboard.png
 │
@@ -189,7 +189,7 @@ After the container is running, execute:
 docker compose exec jupyter pytest -q
 ```
 
-### 5. Open Streamlit Dashboard
+### Open Streamlit Dashboard
 
 After running the pipeline notebook, open:
 
@@ -272,6 +272,7 @@ Example analytical questions:
 Possible future extensions:
 
 * PostgreSQL export
+* dashboard with Streamlit
 * additional datasets
 * orchestration with Airflow or Prefect
 * Azure storage / Databricks architecture documentation
